@@ -1,18 +1,5 @@
 const { Todos } = require("../../models");
 
-// let todos = [
-//   {
-//     id: 1,
-//     title: "Cuci tangan",
-//     isDone: true,
-//   },
-//   {
-//     id: 2,
-//     title: "Jaga jarak",
-//     isDone: false,
-//   },
-// ];
-
 exports.getTodos = async (req, res) => {
   try {
     const todos = await Todos.findAll({
@@ -66,6 +53,7 @@ exports.addTodo = async (req, res) => {
     const data = req.body;
     const newTodos = await Todos.create({
       title: req.body.title,
+      description: req.body.description,
       status: "Not done",
     });
 
